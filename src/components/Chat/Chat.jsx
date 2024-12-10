@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Chat.css'
 import EmojiPicker from 'emoji-picker-react'
+import img_chat from '../../assets/img_chat.jpg'
 
 function Chat() {
   const[emoji,setEmoji] = useState(false);
   const [text,setText] = useState("");
+  const endref = useRef(null)
+
+  useEffect(()=>{
+    endref.current?.scrollIntoView({behavior:"instant"})
+  },[])
+
   function handleEmoji(e){
     setText(prev=>prev+e.emoji);
   }
@@ -13,7 +20,7 @@ function Chat() {
     <div className='chat'>
       <div className="top">
         <div className="user">
-          <img className='user-img' src="./avatar.png" alt="" />
+          <img src="./avatar.png" alt="" />
           <div className="chat-texts">
             <span>Tony Stark</span>
             <p>Lorem ipsum dolor .</p>
@@ -27,7 +34,20 @@ function Chat() {
       </div>
       <div className="center" onClick={()=>setEmoji(false)}>
       <div className="message">
-          <img src="./avatar.png" alt="" />
+          <img className="chat-dp" src="./avatar.png" alt="" />
+          <div className="texts">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum reprehenderit eligendi quisquam molestias ex qui obcaecati inventore dolorem ad aliquid nulla nam ducimus, odit quibusdam veritatis quasi, reiciendis cum voluptates.</p>
+            <span>1 min ago</span>
+          </div>
+        </div>
+        <div className="message own">
+          <div className="texts own">
+            <img src={img_chat} alt="" />
+            <span>1 min ago</span>
+          </div>
+        </div>
+        <div className="message">
+          <img className="chat-dp" src="./avatar.png" alt="" />
           <div className="texts">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum reprehenderit eligendi quisquam molestias ex qui obcaecati inventore dolorem ad aliquid nulla nam ducimus, odit quibusdam veritatis quasi, reiciendis cum voluptates.</p>
             <span>1 min ago</span>
@@ -39,13 +59,7 @@ function Chat() {
             <span>1 min ago</span>
           </div>
         </div>
-        <div className="message">
-          <img src="./avatar.png" alt="" />
-          <div className="texts">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum reprehenderit eligendi quisquam molestias ex qui obcaecati inventore dolorem ad aliquid nulla nam ducimus, odit quibusdam veritatis quasi, reiciendis cum voluptates.</p>
-            <span>1 min ago</span>
-          </div>
-        </div>
+        <div ref={endref}></div>
       </div>
       <div className="bottom">
         <div className="chat-icons">

@@ -1,4 +1,122 @@
 .detail{
     flex: 1;
-    text-align: center; 
+    overflow: scroll;
+    text-align: center;
+    &::-webkit-scrollbar{
+        display: none;
+    }
+
+    .user{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid #dddddd35;
+        .user-img{
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .chat-texts{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            span{
+                font-size: 18px;
+                font-weight: 600;
+            }
+            p{
+                font-size: 15px;
+                font-weight: 500;
+                color: #a5a5a5;
+            }
+        }
+    }
+    .info{
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        
+        .option{
+            .title{
+                display: flex;
+                align-items: center;
+                justify-content:space-between;
+                padding: 10px;
+                border-bottom: 1px solid #dddddd35;
+                cursor: pointer;
+                .arrow_img{
+                    width: 25px;
+                    height: 25px;
+                    background-color: rgba(0, 0, 139, 0.605);
+                    border-radius: 50%;
+                    padding: 7px;
+                    cursor: pointer;
+                }
+                span{
+                    font-weight: 300;
+                }
+            }
+            .photos{
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+                gap: 20px;
+                .photoItem{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    .photoDetail{
+                        display: flex;
+                        gap: 20px;
+                        align-items: center;
+                      img{
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 5px;
+                        object-fit: cover;
+                        
+                      } 
+                    }
+                    .download_img{
+                        width: 30px;
+                        height: 30px;
+                        padding: 7px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+    .btn-details{
+        display: grid;
+        padding: 15px;
+        gap:10px;
+        .block{
+            border-radius: 5px;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            background-color: rgba(230,74,105,0.533);
+            &:hover{
+                background-color: rgba(230, 39, 77, 0.804);
+            }
+        }
+        
+        .logout{
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 10px;
+            color: white;
+            background-color: rgba(19, 224, 210, 0.605);
+            &:hover{
+                background-color: rgba(19, 224, 210, 0.9);
+            }
+        }
+    }
+    
 }    
