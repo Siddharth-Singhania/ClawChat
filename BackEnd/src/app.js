@@ -21,10 +21,17 @@ import userRoute from "./routes/user.routes.js"
 import conversationRoute from "./routes/conversation.routes.js"
 import messageRoute from "./routes/message.routes.js"
 
+
+
 app.use("/api/user",userRoute)
 app.use("/api/conversation",conversationRoute)
 app.use("/api/message",messageRoute)
 
-
+app.use((err, req, res, next) => {
+  res.status(err.statusCode || 500).json({
+      success: false,
+      message: err.message || "Internal Server Error",
+  });
+});
 
 export {app}

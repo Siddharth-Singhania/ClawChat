@@ -37,8 +37,8 @@ function Login() {
             toast.success("Logged in successfully")
         })
         .catch(error=>{
-            console.error("Login Error:\n",error?.response?.data ||error.message);
-            toast.error("Login Failed!!!!");
+            console.error("Login Error:\n",error.message);
+            toast.error(error?.response?.data?.message);
         })
         
 
@@ -64,8 +64,8 @@ function Login() {
         })
         .catch(error => {
             // Handle error
-            console.error("Signup error:", error.response?.data || error.message);
-            toast.error("Signup failed. Please try again.");
+            console.error("Signup error:", error?.response?.data?.message);
+            toast.error(error?.response?.data?.message);
         });
     }
 

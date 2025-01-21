@@ -33,7 +33,7 @@ const signup = asyncHandler(async (req,res)=>{
     if(existedUser){
         throw new ApiError(400,"User with same username or email already exist");
     }
-    const avatarLocalPath = req.files?.avatar[0]?.path;
+    const avatarLocalPath = req.files?.avatar?.[0]?.path;
     if(!avatarLocalPath){
         throw new ApiError(400,"Avatar file is required!!")
     }
